@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Conversion Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Conversion Tool</h1>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-tab="weight">Weight</button>
+            <button class="tab-button" data-tab="length">Length</button>
+            <button class="tab-button" data-tab="temperature">Temperature</button>
+        </div>
+        
+        <div id="weight" class="tab-content active">
+            <h2>Weight Conversion</h2>
+            <div class="conversion-form">
+                <div class="form-group">
+                    <input type="number" id="weight-value" placeholder="Enter value" step="any">
+                    <select id="weight-from">
+                        <option value="kg">Kilograms (kg)</option>
+                        <option value="g">Grams (g)</option>
+                        <option value="lb">Pounds (lb)</option>
+                        <option value="oz">Ounces (oz)</option>
+                    </select>
+                </div>
+                <div class="to">to</div>
+                <div class="form-group">
+                    <select id="weight-to">
+                        <option value="lb">Pounds (lb)</option>
+                        <option value="kg">Kilograms (kg)</option>
+                        <option value="g">Grams (g)</option>
+                        <option value="oz">Ounces (oz)</option>
+                    </select>
+                </div>
+                <button id="weight-convert" class="convert-btn">Convert</button>
+            </div>
+            <div id="weight-result" class="result"></div>
+        </div>
+        
+        <div id="length" class="tab-content">
+            <h2>Length Conversion</h2>
+            <div class="conversion-form">
+                <div class="form-group">
+                    <input type="number" id="length-value" placeholder="Enter value" step="any">
+                    <select id="length-from">
+                        <option value="m">Meters (m)</option>
+                        <option value="cm">Centimeters (cm)</option>
+                        <option value="mm">Millimeters (mm)</option>
+                        <option value="km">Kilometers (km)</option>
+                        <option value="ft">Feet (ft)</option>
+                        <option value="in">Inches (in)</option>
+                        <option value="yd">Yards (yd)</option>
+                        <option value="mi">Miles (mi)</option>
+                    </select>
+                </div>
+                <div class="to">to</div>
+                <div class="form-group">
+                    <select id="length-to">
+                        <option value="ft">Feet (ft)</option>
+                        <option value="m">Meters (m)</option>
+                        <option value="cm">Centimeters (cm)</option>
+                        <option value="mm">Millimeters (mm)</option>
+                        <option value="km">Kilometers (km)</option>
+                        <option value="in">Inches (in)</option>
+                        <option value="yd">Yards (yd)</option>
+                        <option value="mi">Miles (mi)</option>
+                    </select>
+                </div>
+                <button id="length-convert" class="convert-btn">Convert</button>
+            </div>
+            <div id="length-result" class="result"></div>
+        </div>
+        
+        <div id="temperature" class="tab-content">
+            <h2>Temperature Conversion</h2>
+            <div class="conversion-form">
+                <div class="form-group">
+                    <input type="number" id="temperature-value" placeholder="Enter value" step="any">
+                    <select id="temperature-from">
+                        <option value="C">Celsius (°C)</option>
+                        <option value="F">Fahrenheit (°F)</option>
+                        <option value="K">Kelvin (K)</option>
+                    </select>
+                </div>
+                <div class="to">to</div>
+                <div class="form-group">
+                    <select id="temperature-to">
+                        <option value="F">Fahrenheit (°F)</option>
+                        <option value="C">Celsius (°C)</option>
+                        <option value="K">Kelvin (K)</option>
+                    </select>
+                </div>
+                <button id="temperature-convert" class="convert-btn">Convert</button>
+            </div>
+            <div id="temperature-result" class="result"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
