@@ -1,0 +1,32 @@
+services:
+  backend:
+    build: ./backend
+    container_name: conversion-api
+    ports:
+      - "3000:3000"
+    networks:
+      - conversion-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  frontend:
+    build: ./frontend
+    container_name: conversion-ui
+    ports:
+      - "5000:5000"
+    environment:
+      - BACKEND_URL=http://backend:3000
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - conversion-network
+    volumes:
+      - ./frontend:/app
+
+networks:
+  conversion-network:
+    driver: bridge
